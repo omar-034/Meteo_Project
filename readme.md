@@ -29,18 +29,25 @@ Analyse : Requêtage SQL pour obtenir des statistiques mensuelles.
 🛠️ Stack Technique
 Langage : Python 3.10+
 
-Librairies : requests, pandas, psycopg2, matplotlib, seaborn
+Librairies : requests, pandas, psycopg2, matplotlib
 
 Base de données : PostgreSQL 14+
 
 Format de sortie : Jupyter Notebook (.ipynb)
+
+📂 Structure des fichiers
+Bash
+.
+├── meteo.ipynb                   # Notebook principal contenant tout le cycle
+├── requirements.txt              # Liste des dépendances Python
+└── README.md                     # Documentation (ce fichier)
 
 🚀 Installation et Utilisation
 1. Cloner le projet et installer les dépendances
 Bash
 pip install -r requirements.txt
 2. Configuration de la base de données
-Avant d'exécuter le notebook, assurez-vous de créer la table avec la structure suivante :
+Le notebook se charge de créer la table automatiquement. Voici la structure utilisée :
 
 SQL
 CREATE TABLE IF NOT EXISTS meteo_dakar_2025 (
