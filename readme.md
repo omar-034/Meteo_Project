@@ -1,74 +1,54 @@
-🌦️ Pipeline ETL : Analyse Météorologique de Dakar 2025
-👤 Informations Étudiant
-Auteur : [Omar Diop]
+# 🌦️ Pipeline ETL : Analyse Météorologique de Dakar 2025
 
-Formation : Master 1 IA & Data Science
+[![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)](https://www.python.org/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?style=for-the-badge&logo=postgresql)](https://www.postgresql.org/)
+[![Pandas](https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas)](https://pandas.pydata.org/)
 
-Institution : Swiss UMEF, Dakar
+---
 
-Projet : Examen Final - Module Cycle de Vie de la Donnée
+## 👤 Informations Étudiant
+* **Auteur :** **Omar Diop**
+* **Formation :** Master 1 Intelligence Artificielle & Data Science
+* **Institution :** Swiss UMEF, Dakar
+* **Projet :** Examen Final - Module Cycle de Vie de la Donnée
 
-📌 Présentation du Projet
-Ce projet remplace l'examen final et consiste en la mise en place d'un pipeline ETL (Extract, Transform, Load) complet. L'objectif est de récupérer, traiter et stocker les données météorologiques de la ville de Dakar pour l'année 2025 afin d'en extraire des indicateurs climatiques pertinents.
+---
 
-🏗️ Architecture du Pipeline
-Le projet suit une logique de flux de données standard en entreprise :
+## 📌 Présentation du Projet
+Ce projet consiste en la mise en place d'un pipeline **ETL** (Extract, Transform, Load) complet. L'objectif est d'orchestrer un flux de données automatisé pour récupérer, traiter et stocker les données météorologiques de la ville de Dakar pour l'année 2025.
 
-Extraction (API) : Récupération des données historiques via l'API Open-Meteo.
 
-Transformation (Python) :
 
-Nettoyage avec Pandas.
+---
 
-Calcul de la colonne `is_rainy` (Feature Engineering).
+## 🏗️ Architecture du Pipeline
+Le projet respecte les étapes standards de l'ingénierie de données en entreprise :
 
-Chargement (SQL) : Insertion sécurisée dans PostgreSQL en utilisant le driver Psycopg2.
+1.  **Extraction (API)** : Récupération des données historiques via l'API **Open-Meteo**.
+2.  **Transformation (Python)** : 
+    * Nettoyage et structuration des données avec **Pandas**.
+    * **Feature Engineering** : Création d'une variable binaire `is_rainy` (pluie > 0mm).
+3.  **Chargement (SQL)** : Insertion sécurisée dans **PostgreSQL** via le driver **Psycopg2**.
+4.  **Analyse** : Requêtage SQL pour générer des statistiques mensuelles.
 
-Analyse : Requêtage SQL pour obtenir des statistiques mensuelles.
 
-🛠️ Stack Technique
-Langage : Python 3.10+
 
-Librairies : requests, pandas, psycopg2, matplotlib
+---
 
-Base de données : PostgreSQL 14+
+## 🛠️ Stack Technique
 
-Format de sortie : Jupyter Notebook (.ipynb)
+| Composant | Technologie |
+| :--- | :--- |
+| **Langage** | Python 3.10+ |
+| **Librairies** | `requests`, `pandas`, `psycopg2`, `matplotlib` |
+| **Base de données** | PostgreSQL 14+ |
+| **Environnement** | Jupyter Notebook (`.ipynb`) |
 
-📂 Structure des fichiers
-Bash
+---
+
+## 📂 Structure des fichiers
+```bash
 .
-├── meteo.ipynb                   # Notebook principal contenant tout le cycle
-├── requirements.txt              # Liste des dépendances Python
-└── README.md                     # Documentation (ce fichier)
-
-🚀 Installation et Utilisation
-1. Cloner le projet et installer les dépendances
-Bash
-pip install -r requirements.txt
-2. Configuration de la base de données
-Le notebook se charge de créer la table automatiquement. Voici la structure utilisée :
-
-SQL
-CREATE TABLE IF NOT EXISTS meteo_dakar_2025 (
-    date_day DATE PRIMARY KEY,
-    temp_max FLOAT,
-    temp_min FLOAT,
-    apparent_temp_mean FLOAT,
-    precip_sum FLOAT,
-    wind_dir_dominant INT,
-    sunshine_duration FLOAT,
-    is_rainy BOOLEAN
-);
-3. Exécution
-Lancez le Jupyter Notebook et exécutez les cellules dans l'ordre pour voir le pipeline s'animer, de l'appel API jusqu'aux graphiques finaux.
-
-🌐 Perspectives de mise en production
-Le projet a été pensé pour être évolutif. Une suite logique serait l'implémentation d'une API REST (Flask ou FastAPI) pour servir ces données stockées en SQL à des applications tierces ou des tableaux de bord interactifs.
-
-📚 Références & Documentation
-API : Open-Meteo Historical Data
-
-Driver : Psycopg2 Documentation
-
-Cours : Cycle de vie des données - Swiss UMEF Dakar.
+├── meteo.ipynb           # Notebook principal (Cycle complet ETL)
+├── requirements.txt      # Dépendances Python
+└── README.md             # Documentation du projet
